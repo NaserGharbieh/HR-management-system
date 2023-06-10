@@ -1,0 +1,12 @@
+header img{ display: inline; width: 30; height: 15}
+header h1{width: fit-content; display: inline; margin-top: 0%;  }
+header a{ margin-left: 10%;}
+.hlinks{
+    margin-right: 2%;
+}
+.info{margin-left: 1%; font-weight: 600; }
+
+
+
+
+footer{margin-top: 25% ; text-align: center;}

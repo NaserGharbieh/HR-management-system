@@ -53,8 +53,19 @@ display: flex;
 width: 50%;
 
 }
-
-footer{
+.deptable{
     
+    border-width: 4px;
+    border-style: solid;
+}
+.deptable td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  .deptable tr:nth-child(even) {
+    background-color:rgb(239, 202, 155);
+  }
+footer{
     
     margin-top: 25% ; text-align: center;}

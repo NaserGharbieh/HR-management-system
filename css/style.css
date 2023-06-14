@@ -25,19 +25,23 @@ section{
     align-items: center;
     margin: auto;
     flex-wrap: wrap; 
+    gap: 10px;
  }
  .cardDiv{
     /* border: 0.5px solid rgb(134, 109, 109); */
+
         border-radius: 5px;
        width: 15%;
-       height: fit-content;
+       height: 300px;
        display: flex;
        flex-direction: column;
-        padding: 1 rem;
+       
+        padding: 1rem;
         background-color: antiquewhite;
         margin-bottom: 25px;
         box-shadow: gray 1px 1px 10px;
-        align-items: center; */
+        align-items: center; 
+        
        /* justify-content: center; */
         
 }
@@ -50,13 +54,15 @@ margin: 0 1.5rem;
 }
 .empPic{
 display: flex;
-width: 50%;
+width: 100px;
 
 }
+
 .deptable{
     
     border-width: 4px;
     border-style: solid;
+    text-align: center;
 }
 .deptable td, th {
     border: 1px solid #dddddd;
@@ -67,5 +73,5 @@ width: 50%;
     background-color:rgb(239, 202, 155);
   }
 footer{
-    
+    background-color: aqua;
     margin-top: 25% ; text-align: center;}

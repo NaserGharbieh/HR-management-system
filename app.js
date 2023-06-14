@@ -1,7 +1,7 @@
 'use stict';
 var EmployeesArray=[];
 var form=document.getElementById("form"); 
-var secEle = document.getElementById("empinfo");
+var secEle = document.getElementById("secTag");
 
 function Employee(fullName, department, level,imageURL) {
     
@@ -43,13 +43,26 @@ function generateEmployeeID(){
 return empID;}
 
 Employee.prototype.renderEpmloyee=function(){
-    
-
-
+    let divEle = document.createElement("div");
+    divEle.classList.add("cardDiv")
+    secEle.appendChild(divEle)
     let imgEle = document.createElement("img");
+    imgEle.classList.add("empPic")
     imgEle.src = this.imageURL;
-    secEle.appendChild(imgEle);
-        document.write(`<p class="info">Employee name : ${this.fullName} , Employee Salary :${this.randomSalary}, Employee Net Salary :${this.netSalary}`);
+    divEle.appendChild(imgEle);
+    let name = document.createElement("p");
+    name.textContent = ` Name : ${this.fullName} Id:${this.employeeID}`
+    divEle.appendChild(name);
+    let dep = document.createElement("p");
+    dep.textContent = ` Dpartment:${this.department}`
+    divEle.appendChild(dep);
+    let lvl = document.createElement("p");
+    lvl.textContent = `Level:${this.level}`
+    divEle.appendChild(lvl);
+    let sal = document.createElement("p");
+    sal.textContent = ` Net salary: ${this.netSalary}`
+    divEle.appendChild(sal);
+   
     }
 
     Employee.prototype.printEpmloyee=function(){

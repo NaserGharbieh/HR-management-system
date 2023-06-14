@@ -31,7 +31,7 @@ this.randomSalary=randomSalary;}
 Employee.prototype.calculateNetSalary=function(){ 
     //7.5/100
     var tax=0.075;
-    this.netSalary= this.randomSalary-(this.randomSalary*tax);
+    this.netSalary= Math.floor(this.randomSalary-(this.randomSalary*tax));
     
 } 
 function generateEmployeeID(){
@@ -83,21 +83,44 @@ function addedEployee(event){
     let newEmployee=new Employee(fullname,department,level,img) ;
     newEmployee.calculateRandoomSalary();
     newEmployee.calculateNetSalary(); 
-     newEmployee.renderEpmloyee();
-
-
-
-
+     newEmployee.renderEpmloyee(); 
+     savaData(EmployeesArray)
 }
+function savaData(data) {
+    let empArr = JSON.stringify(data); // array of stings 
+    localStorage.setItem('Employees', empArr);
+} 
+function getData() {
+    let retrivedArr = localStorage.getItem('Employees'); // array of strings
+    // console.log("data is coming from LS", retrivedArr);
+    let objArr = JSON.parse(retrivedArr) // array of objs
+    console.log("data is coming from LS", objArr);
     
-let ghazi = new Employee("Ghazi Samer", "Administration", "Senior");
+// (fullName, department, level,imageURL) {
+    if (objArr != null) {
+        // iterating through objArr array that is coming from LS and starting from the new object index ; create new instance
+        for (let i = 0; i < objArr.length; i++){
+            new Employee(objArr[i].fullName, objArr[i].department, objArr[i].level, objArr[i].imageURL);
+        }
+    }
+    renderAll();
+}
+getData();
+ function renderAll(){
+    for (let i = 0; i < EmployeesArray.length; i++) {
+    EmployeesArray[i].calculateRandoomSalary();
+    EmployeesArray[i].calculateNetSalary();
+    EmployeesArray[i].renderEpmloyee();
+    
+ }   }
+/*let ghazi = new Employee("Ghazi Samer", "Administration", "Senior");
 let lana = new Employee("Lana Ali", "Finance", "Senior");
 let tamara = new Employee( "Tamara Ayoub", "Marketing", "Senior");
 let safi = new  Employee( "Safi Walid", "Administration", "Mid-Senior");
 let omar = new Employee( "Omar Zaid", "Development", "Senior");
 let rana= new Employee( "Rana Saleh", "Development", "Junior");
 let hadi = new Employee( "Hadi Ahmad", "Finance", "Mid-Senior"); 
-console.log(hadi.employeeID)
+console.log(hadi.employeeID)*/
 
 /*for (let i = 0; i < EmployeesArray.length; i++) {
     //console.log(EmployeesArray[i]);
